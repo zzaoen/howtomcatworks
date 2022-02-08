@@ -12,7 +12,6 @@ import java.net.Socket;
  * @date 2022/2/6 17:43
  */
 public class HttpServer {
-  public static final String WEB_ROOT = "/Users/zhenzhao/Documents";
   // shutdown command
   private static final String SHUTDOWN_COMMAND = "/shutdown";
 

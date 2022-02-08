@@ -11,7 +11,6 @@ import java.net.Socket;
  * @date 2022/2/6 17:43
  */
 public class HttpServer1 {
-  public static final String WEB_ROOT = "/Users/zhenzhao/Documents";
   // shutdown command
   private static final String SHUTDOWN_COMMAND = "/shutdown";
 
@@ -51,8 +50,9 @@ public class HttpServer1 {
         response.setRequest(request);
 
         // check request type
-        if (request.getUri().startsWith("/servlet")) {
-          new ServletProcessor1().process(request, response);
+        if (request.getUri() != null && request.getUri().startsWith("/servlet")) {
+          // new ServletProcessor1().process(request, response);
+          new ServletProcessor2().process(request, response);
         } else {
           new StaticResourceProcess().process(request, response);
         }

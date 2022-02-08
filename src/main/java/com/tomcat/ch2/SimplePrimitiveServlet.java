@@ -18,7 +18,7 @@ public class SimplePrimitiveServlet implements Servlet {
   @Override
   public void service(ServletRequest request, ServletResponse response)
       throws ServletException, IOException {
-    System.out.println("from service");
+    System.out.println("from simple service");
     PrintWriter out = response.getWriter();
     String errorMessage =
             "HTTP/1.1 200 File Not Found\r\n"

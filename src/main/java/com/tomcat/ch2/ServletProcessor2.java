@@ -1,27 +1,21 @@
 package com.tomcat.ch2;
 
-import javax.servlet.Servlet;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLClassLoader;
-import java.net.URLStreamHandler;
 
 /**
  * @author Bruce Zhao
  * @date 2022/2/7 12:58
  */
-public class ServletProcessor1 {
+public class ServletProcessor2 {
   public void process(Request request, Response response) {
     String uri = request.getUri();
     String servletName = uri.substring(uri.lastIndexOf("/") + 1);
     SimplePrimitiveServlet servlet = new SimplePrimitiveServlet();
+    RequestFacade requestFacade = new RequestFacade(request);
+    ResponseFacade responseFacade = new ResponseFacade(response);
     try {
-      servlet.service(request, response);
+      servlet.service(requestFacade, responseFacade);
     } catch (ServletException | IOException e) {
       e.printStackTrace();
     }

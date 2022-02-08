@@ -1,9 +1,13 @@
 package com.tomcat.ch2;
 
+import com.tomcat.ch1.HttpServer;
+
 import javax.servlet.ServletOutputStream;
 import javax.servlet.ServletResponse;
 import java.io.*;
 import java.util.Locale;
+
+import static com.tomcat.ch2.Constants.WEB_ROOT;
 
 /**
  * @author Bruce Zhao
@@ -29,10 +33,10 @@ public class Response implements ServletResponse {
     FileInputStream fis = null;
     try {
       // If have root directory
-      // File file = new File(HttpServer.WEB_ROOT, request.getUri());
+      File file = new File(WEB_ROOT, request.getUri());
 
       // remove first "/"
-      File file = new File(request.getUri().substring(1));
+      // File file = new File(request.getUri().substring(1));
       if (file.exists()) {
         fis = new FileInputStream(file);
         int ch = fis.read(bytes, 0, BUFFER_SIZE);
