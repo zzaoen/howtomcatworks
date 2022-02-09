@@ -1,5 +1,7 @@
 package com.tomcat.ch2;
 
+import com.tomcat.ch3.SimplePrimitiveServlet;
+
 import javax.servlet.ServletException;
 import java.io.IOException;
 

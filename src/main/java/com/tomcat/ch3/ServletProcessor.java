@@ -1,6 +1,9 @@
-package com.tomcat.ch2;
+package com.tomcat.ch3;
 
-import com.tomcat.ch3.SimplePrimitiveServlet;
+import com.tomcat.ch3.connector.http.HttpRequest;
+import com.tomcat.ch3.connector.http.HttpResponse;
+import com.tomcat.ch3.connector.http.Request;
+import com.tomcat.ch3.connector.http.Response;
 
 import javax.servlet.ServletException;
 import java.io.IOException;
@@ -9,11 +12,12 @@ import java.io.IOException;
  * @author Bruce Zhao
  * @date 2022/2/7 12:58
  */
-public class ServletProcessor1 {
-  public void process(Request request, Response response) {
+public class ServletProcessor {
+  public void process(HttpRequest request, HttpResponse response) {
     String uri = request.getUri();
     String servletName = uri.substring(uri.lastIndexOf("/") + 1);
-    SimplePrimitiveServlet servlet = new SimplePrimitiveServlet();
+    // SimplePrimitiveServlet servlet = new SimplePrimitiveServlet();
+    ModernServlet servlet = new ModernServlet();
     try {
       servlet.service(request, response);
     } catch (ServletException | IOException e) {

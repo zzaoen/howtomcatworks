@@ -1,4 +1,4 @@
-package com.tomcat.ch2;
+package com.tomcat.ch3;
 
 import javax.servlet.*;
 import java.io.IOException;
